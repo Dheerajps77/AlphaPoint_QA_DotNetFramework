@@ -1,0 +1,5 @@
+﻿2019-01-10 14:47:16,926 [14] INFO AlphaPoint_QA.Utils.APLogger - Hello
+2019-01-10 14:47:17,132 [14] DEBUG AlphaPoint_QA.Utils.APLogger - Hello
+2019-01-10 14:47:17,325 [14] FATAL AlphaPoint_QA.Utils.APLogger - Hello
+2019-01-10 14:47:17,548 [14] ERROR AlphaPoint_QA.Utils.APLogger - Hello
+2019-01-10 14:47:17,759 [14] WARN AlphaPoint_QA.Utils.APLogger - Hello

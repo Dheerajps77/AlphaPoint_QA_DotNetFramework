@@ -1,0 +1,38 @@
+﻿2019-01-14 17:27:40,463 [14] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-14 17:28:20,487 [14] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-14 19:45:02,740 [14] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-15 11:08:14,174 [14] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-15 11:17:55,885 [14] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-15 16:45:15,882 [16] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-15 17:03:21,091 [16] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-15 17:06:10,671 [16] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-15 18:05:57,955 [15] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-15 18:10:37,725 [13] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-16 11:26:09,465 [16] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-16 16:03:30,923 [15] INFO AlphaPoint_QA.Utils.APLogger - MarketBuyAmountPersistenceTest Failed
+2019-01-16 16:30:02,208 [15] INFO AlphaPoint_QA.Utils.APLogger - MarketBuyAmountPersistenceTest Failed
+2019-01-16 16:31:47,044 [15] INFO AlphaPoint_QA.Utils.APLogger - MarketBuyAmountPersistenceTest Failed
+2019-01-17 14:54:34,970 [16] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 14:55:04,024 [16] INFO AlphaPoint_QA.Utils.APLogger - MarketBuyAmountPersistenceTest Failed
+2019-01-17 14:55:25,663 [15] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 14:57:23,068 [16] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 14:58:06,911 [15] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 15:00:00,267 [16] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 15:04:19,537 [15] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 15:08:42,128 [15] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 15:11:12,354 [15] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 15:14:05,158 [16] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 15:15:14,933 [15] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 15:16:23,368 [15] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 15:21:09,983 [15] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 15:22:49,576 [15] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 15:51:02,195 [15] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 15:51:16,270 [15] INFO AlphaPoint_QA.Utils.APLogger - Balances stored successfully.
+2019-01-17 15:52:38,908 [16] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 15:52:57,609 [16] INFO AlphaPoint_QA.Utils.APLogger - Balances stored successfully.
+2019-01-17 15:54:03,057 [15] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 15:54:22,379 [15] INFO AlphaPoint_QA.Utils.APLogger - Balances stored successfully.
+2019-01-17 15:56:00,980 [15] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 15:56:18,050 [15] INFO AlphaPoint_QA.Utils.APLogger - Balances stored successfully.
+2019-01-17 15:57:07,990 [15] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-17 15:57:28,182 [15] INFO AlphaPoint_QA.Utils.APLogger - Balances stored successfully.
