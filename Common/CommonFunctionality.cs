@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace AlphaPoint_QA.Common
 {
-    class CommonFunctionalities
+    class CommonFunctionality
     {
         //public static WebDriverWait wait;
 
@@ -19,33 +19,16 @@ namespace AlphaPoint_QA.Common
         //public static string _passWord = "1234";
         //public static Actions action;
 
-        static By userName = By.XPath("//input[@name='username']");
-        static By passWord = By.XPath("//input[@name='password']");
-        static By loginInButton = By.XPath("//button[text()='Log In']");
-        static By selectServerfromList = By.XPath("//select[@name='tradingServer']");
+
+        static IJavaScriptExecutor js;
+
+        
         static By dashBoardMenu = By.XPath("//div[@class='page-header-nav__menu-toggle']");
         static By selectExchangeLink = By.XPath("//a[@href='/exchange']");
-        static By marketOrderTypeButton = By.XPath("//label[@data-test='Market Order Type']");
-        static By limitOrderTypeButton = By.XPath("//label[@data-test='Limit Order Type']");
-        static By stopOrderTypeButton = By.XPath("//label[@data-test='Stop Order Type']");
-        static By buySideButtonUnderOrderEntry = By.XPath("//label[@data-test='Buy Side']");
-        static By sellSideButtonUnderOrderEntry = By.XPath("//label[@data-test='Sell Side']");
-        static By buyAmountTextField = By.XPath("//input[@data-test='Buy Amount']");
-        static By sellAmountTextField = By.XPath("//input[@data-test='Sell Amount']");
-        static By selectingAnOrder = By.XPath("//div[@data-test='Order Entry']");
-        static By userLogoButton = By.XPath("//button[contains(@class,'user-summary__popover-menu-trigger')]");
-        static By signOutButton = By.XPath("//a[contains(@class,'popover-menu__item user-summary')]");
-        static By advanceOrderButton = By.XPath("//div[text()='« Advanced Orders']");
-        static By adminUsername = By.XPath("//input[@placeholder='Username']");
-        static By adminPassword = By.XPath("//input[@placeholder='Password']");
-        static By adminLoginButton = By.XPath("//button[@id='login-btn']");
-        static By openUserMenu = By.XPath("//button[@id='OpenUserMenu']");
-        static By adminSignOut = By.XPath("//*[@id='SignOut']/div/div/div");
-        static By adminUsertext = By.XPath("//span[text()='Users']");
         static By buyAndSell = By.XPath("//a[@href='/buy-sell']");
         static By userSetting = By.XPath("//a[@href='/settings/profile']");
         static By wallets = By.XPath("//a[@href='/wallets']");
-
+        
         static By selectExchange = By.XPath("//*[@id='root']/div[1]/div[1]/div[2]/a[2]");
         static By clinkOnInstrument = By.XPath("//*[@id='root']/div[1]/div[2]/div[1]/div[1]/button");
         static By selectInstrumentDASCUSD = By.XPath("//*[@id='root']/div[1]/div[2]/div[1]/div[1]/div/div/div/div[3]/div[1]");
@@ -58,55 +41,97 @@ namespace AlphaPoint_QA.Common
         static By selectInstrumentETHBTC = By.XPath("//*[@id='root']/div[1]/div[2]/div[1]/div[1]/div/div/div/div[3]/div[8]");
         static By getInstrumentName = By.XPath("//*[@id='root']/div[1]/div[2]/div[1]/div[1]/button/span[1]");
 
+        static By signOutButton = By.XPath("//a[contains(@class,'popover-menu__item user-summary')]");
+        static By userLogoButton = By.XPath("//button[contains(@class,'user-summary__popover-menu-trigger')]");
         static By balanceAmountInWallet = By.XPath("//div[@class='wallet-card__amount']//span");
         static By dashBoardMenuListItems = By.XPath("//a[contains(@class,'page-header-nav__item page-header-nav__item--hoverable')]");
+     
 
-        static By stopButtonUnderOrderEntry = By.XPath("//label[@data-test='Stop Order Type']");
-        static By placeBuyOrderButton = By.XPath("//button[text()='Place Buy Order']");
+        static By openOrder = By.XPath("//div[@class='ap-tab__menu order-history__menu']//div[@data-test='Open Orders']");
+        static By filledOrder = By.XPath("//div[@class='ap-tab__menu order-history__menu']//div[@data-test='Filled Orders']");
+        static By inactiveOrder = By.XPath("//div[@class='ap-tab__menu order-history__menu']//div[@data-test='Inactive Orders']");
+        static By tradeOrder = By.XPath("//div[@class='ap-tab__menu order-history__menu']//div[@data-test='Trade Orders']");
+        static By depositOrder = By.XPath("//div[@class='ap-tab__menu order-history__menu']//div[@data-test='Deposit Orders']");
+        static By withdrawOrder = By.XPath("//div[@class='ap-tab__menu order-history__menu']//div[@data-test='Withdraw Orders']");
 
-
-        public static string StoreBalanceAmountFromWallet(IWebDriver driver)
+        //This method will click on Open Order Tab
+        public static void OpenOrderTab(IWebDriver driver)
         {
-            IWebElement balance = driver.FindElement(balanceAmountInWallet);
-            return balance.Text;
-
+            driver.FindElement(openOrder).Click();
         }
 
-        //Click On "Place Buy Order" under BuyMarket will be execute by using below method.
-        public static void PlaceMarketBuyOrder(IWebDriver driver)
+        //This method will click on filled Order Tab
+        public static void FilledOrderTab(IWebDriver driver)
         {
-            driver.FindElement(placeBuyOrderButton).Click();
-        }
-        public static void MarketOrderUnderBuy(IWebDriver driver)
-        {
-            driver.FindElement(marketOrderTypeButton).Click();
+            driver.FindElement(filledOrder).Click();
         }
 
-
-        ////Below method is use to perform browser open.
-        //public static void BrowserOpening(IWebDriver driver)
-        //{
-        //    driver = new ChromeDriver("E:\\Software\\Webdriver\\New Version");
-        //    driver.Manage().Window.Maximize();
-        //    driver.Navigate().GoToUrl(siteURL);
-        //    driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
-        //    driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
-        //}
-
-        //Below method is use to select the Server name.
-        public static void SelectServer(IWebDriver driver)
+        //This method will click on inactive Order Tab
+        public static void inactiveTab(IWebDriver driver)
         {
-            SelectElement sel = new SelectElement(driver.FindElement(selectServerfromList));
-            sel.SelectByText("wss://apiapexqa2.alphapoint.com/WSGateway/");
+            driver.FindElement(inactiveOrder).Click();
         }
 
-        //Below method is use to perform Login function.
-        //public static void UserLogin(IWebDriver driver)
-        //{
-        //    driver.FindElement(userName).SendKeys(_userName);
-        //    driver.FindElement(passWord).SendKeys(_passWord);
-        //    driver.FindElement(loginInButton).Click();
-        //}
+        //This method will click on trade Order Tab
+        public static void tradeTab(IWebDriver driver)
+        {
+            driver.FindElement(tradeOrder).Click();
+        }
+
+        //This method will click on deposit Order Tab
+        public static void DepositTab(IWebDriver driver)
+        {
+            driver.FindElement(depositOrder).Click();
+        }
+
+        //This method will click on withdraw Order Tab
+        public static void WithdrawTab(IWebDriver driver)
+        {
+            driver.FindElement(withdrawOrder).Click();
+        }
+
+      
+
+        //Below method will scroll to down till pixel defined by user
+        public static void ScrollingDownVertical(IWebDriver driver)
+        {
+            js=(IJavaScriptExecutor)driver;
+            js.ExecuteScript("window.scrollBy(0, 300)");
+        }
+
+        //Below method scroll to up till pixel defined by user
+        public static void ScrollingUpVertical(IWebDriver driver)
+        {
+            js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("window.scrollBy(0, -600)");
+        }
+
+        public static void ScrollingRightHorizontally(IWebDriver driver)
+        {
+            js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("window.scrollBy(500, 0)");
+        }
+
+        //Below method scroll to up till pixel defined by user
+        public static void ScrollingLeftHorizontally(IWebDriver driver)
+        {
+            js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("window.scrollBy(-500, 0)");
+        }
+
+        //Below method scroll to particular webElement
+        public static void ScrollingToParticularElement(IWebDriver driver, IWebElement iwebElement)
+        {
+            js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("arguments[0].scrollIntoView();", iwebElement);
+        }
+
+        //Below method scroll till Particular Coordinates
+        public static void ScrollingToParticularCoordinates(IWebDriver driver)
+        {
+            js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("window.scrollBy(200,300)");
+        }
 
         //Below method is use to click on DashBoard button.
         public static void DashBoardMenuButton(IWebDriver driver)
@@ -252,46 +277,15 @@ namespace AlphaPoint_QA.Common
             driver.FindElement(signOutButton).Click();
         }
 
-        //Below method will click on "Order Entry" button under Buy option in the page
-        public static void SelectAnOrder(IWebDriver driver)
-        {
-            driver.FindElement(selectingAnOrder).Click();
-        }
-
-        //Below method will click on "Advance Order" button under Buy option in the page
-        public static void AdvanceOrder(IWebDriver driver)
-        {
-            driver.FindElement(advanceOrderButton).Click();
-        }
-
-        //Below method will click on "Sell" button under "Order Entry" option in the page
-        public static void ExchangeOrderSell(IWebDriver driver)
-        {
-            driver.FindElement(sellSideButtonUnderOrderEntry).Click();
-        }
-
-        //Below method will click on "Buy" button under "Order Entry" option in the page
-        public static void ExchangeOrderBuy(IWebDriver driver)
-        {
-            driver.FindElement(buySideButtonUnderOrderEntry).Click();
-        }
-
-        //Below method will click on "Stop" button under "Order Entry" option in the page
-        public static void SelectAnStopUnderOrderEntry(IWebDriver driver)
-        {
-            driver.FindElement(stopButtonUnderOrderEntry).Click();
-        }
+     
+      
         //Below method will close the Browser
         public static void CloseBrowser(IWebDriver driver)
         {
             driver.Close();
         }
 
-        public static void ClickOnLimitOrderTypeUnderBuy(IWebDriver driver)
-        {
-            driver.FindElement(limitOrderTypeButton).Click();
-        }
-
+       
         //Below method is use to Admin Login
         //public static void AdminLogin(IWebDriver driver)
         //{
@@ -306,6 +300,8 @@ namespace AlphaPoint_QA.Common
         //}
 
         //Below method is used to logout from the Admin Portal
+
+            /*
         public static void AdminLogOut(IWebDriver driver)
         {
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
@@ -317,7 +313,7 @@ namespace AlphaPoint_QA.Common
             driver.FindElement(adminSignOut).Click();
             Thread.Sleep(3000);
         }
-
+        */
         public static Dictionary<string, string> StoreMarketAmountBalances(IWebDriver driver)
         {
             string marketPrice = driver.FindElement(By.XPath("//*[@id='root']/div[1]/div[2]/div[2]/div[4]/div/div[2]/div/form/div[2]/div[3]/div[1]/span")).Text;

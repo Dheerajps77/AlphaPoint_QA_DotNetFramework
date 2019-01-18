@@ -1,4 +1,5 @@
 ﻿using AlphaPoint_QA.Common;
+using AlphaPoint_QA.CommonLocators;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,12 @@ using Xunit.Abstractions;
 
 namespace AlphaPoint_QA.Pages
 {
-    public class MarketBuyAmountPersistencePage
+    public class MarketBuyAmountPersistencePage : OrderEntryLocators
     {
         IWebDriver driver;
         private readonly ITestOutputHelper output;
+
+        
 
         public MarketBuyAmountPersistencePage(IWebDriver driver, ITestOutputHelper output)
         {
@@ -20,19 +23,18 @@ namespace AlphaPoint_QA.Pages
             this.output = output;
         }
 
-
-        By buyAmountTextField = By.XPath("//input[@data-test='Buy Amount']");
-        By sellAmountTextField = By.XPath("//input[@data-test='Sell Amount']");
-       
-        //By textOfHomePage = By.XPath("//a[text()='Your Snapshot']");
         By exchangeMenuText = By.XPath("//span[@class='page-header-nav__label' and text()='Exchange']");
+
         string exchangeMenuString = "Exchange";
+
+        
 
         public bool VerifyingPersistantAmount(string amountEntered)
         {
+     
             bool flag = false;
-            CommonFunctionalities.DashBoardMenuButton(driver);
-            CommonFunctionalities.SelectAnExchange(driver);
+            CommonFunctionality.DashBoardMenuButton(driver);
+            CommonFunctionality.SelectAnExchange(driver);
             Thread.Sleep(3000);
             string exchangeStringValueFromSite=driver.FindElement(exchangeMenuText).Text;
             Thread.Sleep(3000);
@@ -50,12 +52,11 @@ namespace AlphaPoint_QA.Pages
                 flag = false;
             }
 
-            CommonFunctionalities.MarketOrderUnderBuy(driver);
-            driver.FindElement(buyAmountTextField).SendKeys(amountEntered);
-
-            CommonFunctionalities.ClickOnLimitOrderTypeUnderBuy(driver);
-            CommonFunctionalities.SelectAnStopUnderOrderEntry(driver);
-            CommonFunctionalities.MarketOrderUnderBuy(driver);
+            UserSetFunctions.Click(driver.FindElement(marketOrderTypeButton));
+            UserSetFunctions.EnterText(driver.FindElement(buyAmountTextField), amountEntered);
+            UserSetFunctions.Click(driver.FindElement(limitOrderTypeButton));
+            UserSetFunctions.Click(driver.FindElement(stopOrderTypeButton));
+            UserSetFunctions.Click(driver.FindElement(marketOrderTypeButton));
 
             Thread.Sleep(2000);
             string amountPersisted = driver.FindElement(buyAmountTextField).GetAttribute("value");
@@ -73,14 +74,11 @@ namespace AlphaPoint_QA.Pages
                 flag = false;
             }
 
-            CommonFunctionalities.ExchangeOrderSell(driver);
-            CommonFunctionalities.MarketOrderUnderBuy(driver);
-            driver.FindElement(sellAmountTextField).SendKeys(amountEntered);
-
-            CommonFunctionalities.ClickOnLimitOrderTypeUnderBuy(driver);
-            CommonFunctionalities.SelectAnStopUnderOrderEntry(driver);
-            CommonFunctionalities.MarketOrderUnderBuy(driver);
-
+            UserSetFunctions.Click(driver.FindElement(sellOrderEntryButton));
+            UserSetFunctions.Click(driver.FindElement(marketOrderTypeButton));
+            UserSetFunctions.Click(driver.FindElement(sellAmountTextField));
+            UserSetFunctions.Click(driver.FindElement(limitOrderTypeButton));
+            UserSetFunctions.Click(driver.FindElement(stopOrderTypeButton));
             Thread.Sleep(2000);
             
             output.WriteLine("Amount Persisted - > " + amountPersisted);
@@ -96,9 +94,7 @@ namespace AlphaPoint_QA.Pages
                 output.WriteLine("Test case has been failed for Sell Market Order Type.");
                 flag = false;
             }
-
-
-            CommonFunctionalities.LogOut(driver);
+             CommonFunctionality.LogOut(driver);
             Thread.Sleep(4000);
             driver.Close();
             return flag;

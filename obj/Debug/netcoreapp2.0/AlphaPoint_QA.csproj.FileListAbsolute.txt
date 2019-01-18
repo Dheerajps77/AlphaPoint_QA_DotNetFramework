@@ -70,4 +70,3 @@ E:\AP Code\AlphaPoint_QA\AlphaPoint_QA\obj\Debug\netcoreapp2.0\AlphaPoint_QA.Ass
 E:\AP Code\AlphaPoint_QA\AlphaPoint_QA\obj\Debug\netcoreapp2.0\AlphaPoint_QA.AssemblyInfo.cs
 E:\AP Code\AlphaPoint_QA\AlphaPoint_QA\obj\Debug\netcoreapp2.0\AlphaPoint_QA.dll
 E:\AP Code\AlphaPoint_QA\AlphaPoint_QA\obj\Debug\netcoreapp2.0\AlphaPoint_QA.pdb
-E:\AP Code\AlphaPoint_QA\AlphaPoint_QA\obj\Debug\netcoreapp2.0\AlphaPoint_QA.csprojAssemblyReference.cache

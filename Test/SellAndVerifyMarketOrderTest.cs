@@ -11,27 +11,27 @@ using Xunit.Abstractions;
 
 namespace AlphaPoint_QA.Test
 {
-   public class BuyAndVerifyMarketOrderTest
+   public class SellAndVerifyMarketOrderTest
     {
-        private readonly ITestOutputHelper output;
-        public static IWebDriver driver;
+        IWebDriver driver;
         static ILog logger;
+        private readonly ITestOutputHelper output;
+
         static Config data;
         static string username;
         static string password;
 
-        public BuyAndVerifyMarketOrderTest(ITestOutputHelper output)
+        public SellAndVerifyMarketOrderTest(ITestOutputHelper output)
         {
             this.output = output;
             logger = APLogger.GetLog();
-
 
             data = ConfigManager.Instance;
             driver = AlphaPointWebDriver.driver;
         }
 
         [Fact]
-        public void VerifyBuyMarketOrder()
+        public void SellAndVerifyMarketOrderTestCase()
         {
             driver.Navigate().GoToUrl("https://apexwebqa.azurewebsites.net/exchange");
             driver.Manage().Window.Maximize();
@@ -40,9 +40,8 @@ namespace AlphaPoint_QA.Test
             UserFunctionality objUserFunctionality = new UserFunctionality(output);
             objUserFunctionality.LogIn();
 
-            BuyAndVerifyMarketOrderPage objBuyAndVerifyMarketOrderPage = new BuyAndVerifyMarketOrderPage(driver, output);
-            objBuyAndVerifyMarketOrderPage.BuyAndVerifyMarketOrderFlow("BTCUSD",driver, "1");
-
+            SellAndVerifyMarketOrderPage objSellAndVerifyMarketOrderPage = new SellAndVerifyMarketOrderPage(driver, output);
+            objSellAndVerifyMarketOrderPage.SellAndVerifyMarketOrderFlow("BTCUSD", driver, "1");
         }
     }
 }

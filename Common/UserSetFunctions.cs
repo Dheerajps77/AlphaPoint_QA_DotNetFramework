@@ -3,6 +3,7 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xunit;
 
 namespace AlphaPoint_QA.Common
 {
@@ -10,6 +11,7 @@ namespace AlphaPoint_QA.Common
     {
         public static void EnterText(IWebElement element, string value)
         {
+            element.Clear();
             element.SendKeys(value);
         }
 
@@ -24,6 +26,19 @@ namespace AlphaPoint_QA.Common
         {
             var selectElement = new SelectElement(element);
             selectElement.SelectByText(value);
+        }
+
+
+        public static void VerifyWebElement(IWebElement we)
+        {
+            try
+            {
+                Assert.True(we.Displayed && we.Enabled);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }
