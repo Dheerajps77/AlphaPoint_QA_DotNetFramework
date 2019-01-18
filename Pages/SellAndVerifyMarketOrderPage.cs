@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace AlphaPoint_QA.Pages
@@ -24,11 +25,32 @@ namespace AlphaPoint_QA.Pages
             logger = APLogger.GetLog();
         }
 
+        By exchangeMenuText = By.XPath("//span[@class='page-header-nav__label' and text()='Exchange']");
+        string exchangeMenuString = "Exchange";
+
         public void SellAndVerifyMarketOrderFlow(string instrument, IWebDriver driver, string amountPrice)
         {
+            bool flag = false;
             Thread.Sleep(3000);
             CommonFunctionality.DashBoardMenuButton(driver);
             Thread.Sleep(2000);
+
+
+            string exchangeStringValueFromSite = driver.FindElement(exchangeMenuText).Text;
+            Thread.Sleep(3000);
+
+            if (exchangeStringValueFromSite.Equals(exchangeMenuString))
+            {
+                Assert.True(true, "Verification for exchangeMenu value has been passed.");
+                output.WriteLine("Verification for exchangeMenu value has been passed.");
+                flag = true;
+            }
+            else
+            {
+                Assert.False(false, "Verification for exchangeMenu value has been failed.");
+                output.WriteLine("Verification for exchangeMenu value has been failed.");
+                flag = false;
+            }
 
             CommonFunctionality.SelectInstrumentFromExchange(instrument, driver);
             UserSetFunctions.Click(driver.FindElement(sellOrderEntryButton));

@@ -24,7 +24,6 @@ namespace AlphaPoint_QA.Pages
         }
 
         By exchangeMenuText = By.XPath("//span[@class='page-header-nav__label' and text()='Exchange']");
-
         string exchangeMenuString = "Exchange";
 
         

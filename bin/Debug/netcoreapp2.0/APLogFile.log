@@ -75,3 +75,5 @@
 2019-01-18 17:04:02,254 [13] INFO AlphaPoint_QA.Utils.APLogger - Test Started
 2019-01-18 17:06:03,758 [13] INFO AlphaPoint_QA.Utils.APLogger - Test Started
 2019-01-18 17:06:18,676 [13] INFO AlphaPoint_QA.Utils.APLogger - Balances stored successfully.
+2019-01-18 17:26:33,323 [13] INFO AlphaPoint_QA.Utils.APLogger - Test Started
+2019-01-18 17:26:48,597 [13] INFO AlphaPoint_QA.Utils.APLogger - For Sell Order case --> Balances stored successfully.
