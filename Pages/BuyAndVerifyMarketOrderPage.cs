@@ -29,7 +29,7 @@ namespace AlphaPoint_QA.Pages
         public By orderEntryButton = By.XPath("//div[@data-test='Order Entry']");
         public By feesText = By.XPath("//div[contains(@class,'ap-label-with-text')]//label[contains(@class,'order-entry__lwt-label') and text()='Fees']");
         public By orderTotalText = By.XPath("//div[contains(@class,'ap-label-with-text')]//label[contains(@class,'order-entry__lwt-label') and text()='Order Total']");
-        public By netText = By.XPath("//div[contains(@class,'ap-label-with-text')]//label[contains(@class,'order-entry__lwt-label') and text()='Net']");
+        public By netText = By.XPath("//div[contains(@class,'ap-label-with-text')]//label[contains(@class,'order-entry__lwt-label') and text()='Net']");  
 
 
         public BuyAndVerifyMarketOrderPage(IWebDriver driver, ITestOutputHelper output)
@@ -45,19 +45,16 @@ namespace AlphaPoint_QA.Pages
             Thread.Sleep(3000);
 
             // This needs to be changed - crate locator class
-            CommonFunctionality.DashBoardMenuButton(driver);
+            CommonFunctionality.SelectDashBoardButton(driver);
 
             Thread.Sleep(2000);
           
             CommonFunctionality.SelectInstrumentFromExchange(instrument, driver);
 
-            //CommonFunctionality.MarketOrderUnderBuy(driver);
             UserSetFunctions.Click(driver.FindElement(marketOrderTypeButton));
             UserSetFunctions.EnterText(driver.FindElement(buyAmountTextField), amountEntered);
             Thread.Sleep(2000);
 
-            
-            //string marketPrice = driver.FindElement(By.XPath("//*[@id='root']/div[1]/div[2]/div[2]/div[4]/div/div[2]/div/form/div[2]/div[3]/div[1]/span")).Text;
             Dictionary<string, string> balances = new Dictionary<string, string>();
 
 

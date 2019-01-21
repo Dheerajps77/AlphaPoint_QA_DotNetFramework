@@ -134,13 +134,13 @@ namespace AlphaPoint_QA.Common
         }
 
         //Below method is use to click on DashBoard button.
-        public static void DashBoardMenuButton(IWebDriver driver)
+        public static void SelectDashBoardButton(IWebDriver driver)
         {
             driver.FindElement(dashBoardMenu).Click();
         }
 
         //Below method is use select an Exchange.
-        public static void SelectAnExchange(IWebDriver driver)
+        public static void NavigateToExchange(IWebDriver driver)
         {
             driver.FindElement(selectExchangeLink).Click();
         }
@@ -253,19 +253,19 @@ namespace AlphaPoint_QA.Common
 
 
         //Below method will click on "Buy & Sell" from Dashboard menu
-        public static void NavigateBuySell(IWebDriver driver)
+        public static void NavigateToBuySell(IWebDriver driver)
         {
             driver.FindElement(buyAndSell).Click();
         }
 
         //Below method will click on "User Settings" from Dashboard menu
-        public static void NavigateUserSetting(IWebDriver driver)
+        public static void NavigateToUserSetting(IWebDriver driver)
         {
             driver.FindElement(userSetting).Click();
         }
 
         //Below method will click on "Wallets" from Dashboard menu
-        public static void ClickWallets(IWebDriver driver)
+        public static void NavigateToWallets(IWebDriver driver)
         {
             driver.FindElement(wallets).Click();
         }

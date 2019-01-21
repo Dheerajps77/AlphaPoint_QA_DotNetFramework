@@ -45,8 +45,8 @@ namespace AlphaPoint_QA.Pages
         {
      
             bool flag = false;
-            CommonFunctionality.DashBoardMenuButton(driver);
-            CommonFunctionality.SelectAnExchange(driver);
+            CommonFunctionality.SelectDashBoardButton(driver);
+            CommonFunctionality.NavigateToExchange(driver);
             Thread.Sleep(3000);
             string exchangeStringValueFromSite=driver.FindElement(exchangeMenuText).Text;
             Thread.Sleep(3000);

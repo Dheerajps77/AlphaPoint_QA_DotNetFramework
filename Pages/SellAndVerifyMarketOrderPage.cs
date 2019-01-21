@@ -46,7 +46,7 @@ namespace AlphaPoint_QA.Pages
         {
             bool flag = false;
             Thread.Sleep(3000);
-            CommonFunctionality.DashBoardMenuButton(driver);
+            CommonFunctionality.SelectDashBoardButton(driver);
             Thread.Sleep(2000);
 
 
