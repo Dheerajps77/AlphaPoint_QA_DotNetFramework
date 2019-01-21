@@ -11,13 +11,25 @@ using Xunit.Abstractions;
 
 namespace AlphaPoint_QA.Pages
 {
-    class BuyAndVerifyMarketOrderPage : OrderEntryLocators
+    class BuyAndVerifyMarketOrderPage
     {
         IWebDriver driver;
         static ILog logger;
         private readonly ITestOutputHelper output;
 
-        //By buyAmountTextField = By.XPath("//input[@data-test='Buy Amount']");
+        public By placeBuyOrderButton = By.XPath("//button[text()='Place Buy Order']");
+        public By placeSellOrderButton = By.XPath("//button[text()='Place Sell Order']");
+        public By stopOrderTypeButton = By.XPath("//label[@data-test='Stop Order Type']");
+        public By buyAmountTextField = By.XPath("//input[@data-test='Buy Amount']");
+        public By sellAmountTextField = By.XPath("//input[@data-test='Sell Amount']");
+        public By marketOrderTypeButton = By.XPath("//label[@data-test='Market Order Type']");
+        public By limitOrderTypeButton = By.XPath("//label[@data-test='Limit Order Type']");
+        public By buyOrderEntryButton = By.XPath("//label[@data-test='Buy Side']");
+        public By sellOrderEntryButton = By.XPath("//label[@data-test='Sell Side']");
+        public By orderEntryButton = By.XPath("//div[@data-test='Order Entry']");
+        public By feesText = By.XPath("//div[contains(@class,'ap-label-with-text')]//label[contains(@class,'order-entry__lwt-label') and text()='Fees']");
+        public By orderTotalText = By.XPath("//div[contains(@class,'ap-label-with-text')]//label[contains(@class,'order-entry__lwt-label') and text()='Order Total']");
+        public By netText = By.XPath("//div[contains(@class,'ap-label-with-text')]//label[contains(@class,'order-entry__lwt-label') and text()='Net']");
 
 
         public BuyAndVerifyMarketOrderPage(IWebDriver driver, ITestOutputHelper output)
