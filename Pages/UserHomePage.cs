@@ -1,17 +1,30 @@
 ﻿using AlphaPoint_QA.Common;
+using AlphaPoint_QA.Utils;
+using log4net;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xunit.Abstractions;
 
 namespace AlphaPoint_QA.Pages
 {
     class UserHomePage
     {
+
+        private readonly ITestOutputHelper output;
+        static ILog logger;
+        static Config data;
+        static string username;
+        static string password;
+
         IWebDriver driver;
-        public UserHomePage(IWebDriver driver)
+        public UserHomePage(IWebDriver driver, ITestOutputHelper output)
         {
-            this.driver = driver;
+            this.output = output;
+            logger = APLogger.GetLog();
+            data = ConfigManager.Instance;
+            driver = AlphaPointWebDriver.driver;
         }
 
         /// <summary>

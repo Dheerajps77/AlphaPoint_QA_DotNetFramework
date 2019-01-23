@@ -2,6 +2,7 @@
 using AlphaPoint_QA.Utils;
 using log4net;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,6 +18,10 @@ namespace AlphaPoint_QA.Common
         static Config data;
         static string username;
         static string password;
+
+        By CloseIconAdvancedOrder = By.XPath("//div[@class='ap-sidepane__close-button advanced-order-sidepane__close-button']/span");
+        By orderEntrySelectTimeInForce = By.XPath("//select[@name='timeInForce']");
+
 
         public UserFunctionality(ITestOutputHelper output)
         {
@@ -75,6 +80,38 @@ namespace AlphaPoint_QA.Common
         public void CreateOrdersSell(int number)
         {
 
+        }
+
+        public void CloseAdvancedOrderSection()
+        {
+            try
+            {
+                IWebElement closeadvanced = driver.FindElement(CloseIconAdvancedOrder);
+                UserSetFunctions.Click(closeadvanced);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public void SelectTimeInForceOrderEntry(string selectValueOption)
+        {
+            IWebElement webElementOfTimeInFroce = driver.FindElement(orderEntrySelectTimeInForce);
+            SelectElement select = new SelectElement(webElementOfTimeInFroce);
+
+            if(selectValueOption.Equals("Good Til Canceled"))
+            {
+                select.SelectByText("Good Til Canceled");
+            }
+            else if(selectValueOption.Equals("Immediate or Cancel"))
+            {
+                select.SelectByText("Immediate or Cancel");
+            }
+            else if(selectValueOption.Equals("Fill or Kill"))
+            {
+                select.SelectByText("Fill or Kill");
+            }
         }
     }
 }

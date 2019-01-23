@@ -132,5 +132,10 @@ namespace AlphaPoint_QA.Utils
             SelectElement dropdown = new SelectElement(driver.FindElement(locator));
             dropdown.SelectByValue(value);
         }
+
+        public static void OpenNewBrowserWindow(IWebDriver driver, string url)
+        {
+            driver.Navigate().GoToUrl(url);
+        }
     }
 }
